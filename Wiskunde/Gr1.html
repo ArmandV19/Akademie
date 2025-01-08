@@ -1,27 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade 1 - Math Made Fun</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>Grade 1 - Math Lessons</title>
+    <link rel="stylesheet" href="../styles/style.css"> <!-- Link to external stylesheet -->
+    <style>
+        /* Inline styles for quick preview; move to style.css later */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #ffffffc9;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        #content {
+            margin: 30px 10px;
+            width: 90%;
+            max-width: 800px;
+            text-align: left;
+            background-color: #ffffffc9;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #content h2 {
+            font-size: 1.8em;
+            color: #444;
+        }
+
+        #content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link {
+            margin: 20px;
+            padding: 10px 15px;
+            background-color: #a1c4fd;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #333;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            font-size: 0.9em;
+            color: white;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Grade 1 - Math Lessons</h1>
-        <p>Welcome to Grade 1 math! Watch the video below to learn:</p>
+        <p>Welcome to Grade 1! Let's learn and have fun!</p>
     </header>
 
-    <main>
-        <h2>Introduction to Addition</h2>
-        <video width="640" height="360" controls>
-            <source src="videos/grade1_addition.mp4" type="video/mp4">
+    <section id="content">
+        <h2>Lesson: Introduction to Numbers</h2>
+        <p>In this lesson, we will learn the basics of numbers, counting, and simple math operations. Watch the video below to get started!</p>
+        <video controls>
+            <source src="../videos/grade1-intro.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-    </main>
+        <p>Practice questions:</p>
+        <ul>
+            <li>What is 2 + 3?</li>
+            <li>Count the objects in the picture below (add an image if available).</li>
+            <li>Write the numbers from 1 to 10.</li>
+        </ul>
+    </section>
+
+    <a href="../index.html" class="back-link">Back to Home</a>
 
     <footer>
-        <p><a href="index.html">Back to Homepage</a></p>
+        <p>&copy; 2025 Learning Hub - Math Section. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
