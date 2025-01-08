@@ -6,29 +6,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Learning Hub</title>
     <link rel="stylesheet" href="styles/style.css"> <!-- Link to external stylesheet -->
+    <style>
+        /* Inline styles for quick preview; move to style.css later */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: linear-gradient(135deg, #89f7fe, #66a6ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #ffffffc9;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        #subjects {
+            margin: 30px 10px;
+        }
+
+        .subject {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: #ffffffc9;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .subject:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subject h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #444;
+        }
+
+        .subject p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .subject a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #66a6ff;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .subject a:hover {
+            background-color: #333;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            font-size: 0.9em;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h1>Welcome to the Learning Hub</h1>
-        <p>Choose your subject to get started!</p>
+        <p>Choose a subject and start learning today!</p>
     </header>
 
     <section id="subjects">
-        <h2>Subjects</h2>
         <div class="subject">
             <h3>Math</h3>
-            <p>Explore Math lessons for different grades!</p>
-            <a href="Wiskunde/index.html">Go to Math</a> <!-- Link to Math section -->
+            <p>Explore math lessons for all grades!</p>
+            <a href="Math/index.html">Go to Math</a>
         </div>
 
         <div class="subject">
             <h3>Physics</h3>
-            <p>Learn the fundamentals of Physics!</p>
-            <a href="Fisiese Wetenskappe/index.html">Go to Physics</a> <!-- Link to Physics section -->
+            <p>Learn the fundamentals of physics!</p>
+            <a href="Physics/index.html">Go to Physics</a>
         </div>
 
-        <!-- You can add more subjects here -->
+        <!-- Add more subjects here -->
     </section>
 
     <footer>
@@ -37,4 +124,5 @@
 </body>
 
 </html>
+
 
