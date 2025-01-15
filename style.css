@@ -1,40 +1,50 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+.subjects-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between subjects */
+    flex-wrap: wrap; /* Wrap subjects to the next line if necessary */
+    padding: 20px;
 }
 
-header {
+.subject {
     background-color: #ffcc00;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    width: 250px; /* Consistent width for each subject */
     text-align: center;
-    color: #fff;
-}
-
-header h1 {
-    margin: 0;
-}
-
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
     color: #333;
-    font-weight: bold;
 }
 
-main {
-    padding: 20px;
+.subject h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
 }
 
-section {
-    margin-bottom: 40px;
+.subject p {
+    font-size: 1em;
+    margin-bottom: 15px;
 }
 
-footer {
+.subject a {
+    display: inline-block;
+    padding: 10px 15px;
     background-color: #333;
     color: #fff;
-    text-align: center;
-    padding: 10px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.subject a:hover {
+    background-color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .subject {
+        width: 100%; /* Full width for small screens */
+    }
 }
