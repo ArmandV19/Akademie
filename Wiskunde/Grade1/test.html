@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1 - Practice Questions</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script>
+    // Function to check answers
+    function checkAnswers() {
+      const correctAnswers = {
+        question1: "10", // Correct answer for Question 1
+        question2: "20", // Correct answer for Question 2
+      };
+
+      let score = 0;
+      const total = Object.keys(correctAnswers).length;
+
+      // Loop through the correctAnswers object to check each input
+      for (const questionId in correctAnswers) {
+        const userAnswer = document.getElementById(questionId).value.trim();
+        const resultDiv = document.getElementById(`${questionId}-result`);
+        
+        if (userAnswer === correctAnswers[questionId]) {
+          resultDiv.textContent = "Correct!";
+          resultDiv.style.color = "green";
+          score++;
+        } else {
+          resultDiv.textContent = `Incorrect! The correct answer is: ${correctAnswers[questionId]}`;
+          resultDiv.style.color = "red";
+        }
+      }
+
+      // Display the score
+      const scoreDiv = document.getElementById("score");
+      scoreDiv.textContent = `Your Score: ${score}/${total}`;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Lesson 1 - Practice Questions</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Practice Questions</h2>
+      
+      <!-- Question 1 -->
+      <div class="question">
+        <p>1. What is 5 + 5?</p>
+        <input type="text" id="question1" placeholder="Your answer here">
+        <div id="question1-result" class="result"></div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <p>2. What is 10 + 10?</p>
+        <input type="text" id="question2" placeholder="Your answer here">
+        <div id="question2-result" class="result"></div>
+      </div>
+
+      <!-- Button to submit answers -->
+      <button onclick="checkAnswers()">Submit Answers</button>
+
+      <!-- Score display -->
+      <div id="score" class="score"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Your Website Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
