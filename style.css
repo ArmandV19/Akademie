@@ -44,7 +44,8 @@ footer {
 /* Subjects Container */
 .subjects-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center-align subject boxes */
+    align-items: flex-start; /* Align boxes to the top for consistency */
     gap: 20px; /* Space between subject boxes */
     flex-wrap: wrap; /* Allow wrapping to the next line */
     padding: 20px;
