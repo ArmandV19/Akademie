@@ -46,9 +46,9 @@ footer {
     display: flex;
     justify-content: center; /* Center-align subject boxes */
     align-items: flex-start; /* Align boxes to the top for consistency */
-    gap: 210px; /* Space between subject boxes */
+    gap: 20px; /* Space between subject boxes */
     flex-wrap: wrap; /* Allow wrapping to the next line */
-    padding: 210px;
+    padding: 20px;
 }
 
 /* Individual Subject Box */
@@ -64,7 +64,7 @@ footer {
     flex-direction: column; /* Stack items vertically */
     justify-content: space-between; /* Space out content evenly */
     align-items: center; /* Center align the content */
-    height: 300px; /* Set a fixed height for all boxes */
+    height: 600px; /* Set a fixed height for all boxes */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
