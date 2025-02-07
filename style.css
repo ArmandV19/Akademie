@@ -49,11 +49,31 @@ footer {
 }
 
 .subject {
+    background-color: #E6F4FF; /* Match your style */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px; /* Consistent width */
+    text-align: center;
+    color: #333;
+    
+    /* Flexbox for equal height */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; /* Ensures the button stays at the bottom */
     align-items: center;
-    height: auto; /* Let grid determine height */
+
+    min-height: 300px; /* Ensures all boxes are the same height */
+}
+
+/* Ensures the paragraph takes equal space across boxes */
+.subject p {
+    flex-grow: 1; /* Makes text area flexible */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center;
+    text-align: center;
+    min-height: 50px; /* Ensures uniformity */
 }
 
 .subject:hover {
