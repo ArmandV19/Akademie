@@ -1,36 +1,115 @@
 <!DOCTYPE html>
-<html lang="af">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welkom by ArrieLesse</title>
-    <link rel="stylesheet" href="style.css"> <!-- Linking to external stylesheet -->
+    <link rel="stylesheet" href="styles/style.css"> <!-- Link to external stylesheet -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: linear-gradient(135deg, #ffe29f, #ffa99f);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #ffffffc9;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        #subjects {
+            margin: 30px 10px;
+        }
+
+        .subject {
+            display: inline-block;
+            margin: 20px;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+            background-color: #ffffffc9;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .subject:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subject h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #444;
+        }
+
+        .subject a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #ffa99f;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .subject a:hover {
+            background-color: #333;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            font-size: 0.9em;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <h1>Welkom by ArrieLesse</h1>
-        <p>Kies asseblief 'n vak om te begin leer!</p>
+        <p>Kies asseblief 'n vak</p>
     </header>
 
     <section id="subjects">
         <div class="subject">
             <h3>Wiskunde</h3>
-            <p>Leer 'n nuwe taal met getalle.</p>
             <a href="Wiskunde/index.html">Gaan na Wiskunde</a>
         </div>
 
         <div class="subject">
             <h3>Afrikaans</h3>
-            <p>Verbeter jou taalkennis en woordeskat.</p>
             <a href="Afrikaans/index.html">Gaan na Afrikaans</a>
         </div>
 
         <div class="subject">
             <h3>Fisiese Wetenskappe</h3>
-            <p>Ontdek die wonder van die natuurwette.</p>
-            <a href="Fisiese Wetenskappe/index.html">Gaan na Fisika</a>
+            <a href="Fisiese Wetenskappe/index.html">Gaan na Fisiese Wetenskappe</a>
         </div>
     </section>
 
