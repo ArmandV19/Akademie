@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="../styles.css">
 
   <style>
+    .question { margin-bottom: 20px; }
+    input { display: block; margin-top: 5px; }
+
     #drag-container {
       display: flex;
       gap: 20px;
@@ -21,7 +24,7 @@
   </style>
 
   <script>
-    // 🔵 1. Regte antwoorde vir vrae 1–5
+    // 🔵 Regte antwoorde vir vrae 1–5
     const correctAnswers = {
       q1: "38",
       q2: "13",
@@ -52,22 +55,16 @@
         `Jou punt: ${score}/${total}`;
     }
 
-
-    // 🔵 2. Sleep-en-los vir Vraag 6
+    // 🔵 Sleep-en-los funksies vir Vraag 6
     let draggedItem = null;
 
-    function allowDrop(ev) {
-      ev.preventDefault();
-    }
+    function allowDrop(ev) { ev.preventDefault(); }
 
-    function drag(ev) {
-      draggedItem = ev.target;
-    }
+    function drag(ev) { draggedItem = ev.target; }
 
     function drop(ev) {
       ev.preventDefault();
       if (ev.target.classList.contains("drag")) {
-        // Swap elements
         const container = document.getElementById("drag-container");
         const items = Array.from(container.children);
         const draggedIndex = items.indexOf(draggedItem);
@@ -84,9 +81,7 @@
     }
 
     function checkOrder() {
-      const items = Array.from(document.querySelectorAll("#drag-container img"))
-                         .map(img => img.id);
-
+      const items = Array.from(document.querySelectorAll("#drag-container img")).map(img => img.id);
       const correct = ["small", "medium", "large"];
       const result = document.getElementById("q6-result");
 
@@ -98,11 +93,21 @@
         result.style.color = "red";
       }
     }
+
+    // 🔵 Lukraak sorteer prente wanneer die bladsy laai
+    window.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById("drag-container");
+      const items = Array.from(container.children);
+
+      while(items.length) {
+        const randIndex = Math.floor(Math.random() * items.length);
+        container.appendChild(items.splice(randIndex, 1)[0]);
+      }
+    });
   </script>
 </head>
 
 <body>
-
 <header>
   <h1>Graad 1 - Oefen Vrae</h1>
 </header>
@@ -128,8 +133,7 @@
     <!-- Vraag 3 -->
     <div class="question">
       <p>3. Watse vorm is hierdie?</p>
-      <img src="images/Rectangle.png" width="80">
-      <br>
+      <img src="images/Rectangle.png" width="80"><br>
       <input type="text" id="q3">
       <div id="q3-result"></div>
     </div>
@@ -138,8 +142,7 @@
     <div class="question">
       <p>4. Watter glas is swaarder? (1 of 2)</p>
       <img src="images/glass2.png" width="80">
-      <img src="images/glass1.png" width="80">
-      <br>
+      <img src="images/glass1.png" width="80"><br>
       <input type="text" id="q4">
       <div id="q4-result"></div>
     </div>
@@ -147,8 +150,7 @@
     <!-- Vraag 5 -->
     <div class="question">
       <p>5. Hoeveel geld is hier?</p>
-      <img src="images/money.png" width="120">
-      <br>
+      <img src="images/money.png" width="120"><br>
       <input type="text" id="q5">
       <div id="q5-result"></div>
     </div>
@@ -156,29 +158,25 @@
     <!-- Vraag 6 -->
     <div class="question">
       <p>6. Rangskik van klein na groot:</p>
-
       <div id="drag-container">
-        <img id="small" src="images/small.png" class="drag"
-             draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <img id="medium" src="images/medium.png" class="drag"
-             draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <img id="large" src="images/large.png" class="drag"
-             draggable="true" ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img id="small" src="images/small.png" class="drag" draggable="true"
+             ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img id="medium" src="images/medium.png" class="drag" draggable="true"
+             ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img id="large" src="images/large.png" class="drag" draggable="true"
+             ondragstart="drag(event)" ondrop="drop(event)" ondragover="allowDrop(event)">
       </div>
-
       <button onclick="checkOrder()">Kyk Antwoord</button>
       <div id="q6-result"></div>
     </div>
 
     <button onclick="checkAnswers()">Finaliseer Antwoorde</button>
     <div id="score"></div>
-
   </section>
 </main>
 
 <footer>
   <p>&copy; ArrieLesse 2025. Alle regte voorbehou.</p>
 </footer>
-
 </body>
 </html>
