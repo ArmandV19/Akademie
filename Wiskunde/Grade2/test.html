@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graad 2 - Wiskunde Toets</title>
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    .question { margin-bottom: 25px; }
+    input { display: block; margin-top: 5px; }
+    #drag-container, .drag-container {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+    .drag {
+      width: 80px;
+      cursor: grab;
+      border: 2px solid #ccc;
+      padding: 5px;
+      background: #fff;
+    }
+  </style>
+
+  <script>
+    // -------------------------------
+    // 🔵 Korrekte antwoorde vir vrae
+    // -------------------------------
+    const correctAnswers = {
+      q1: "34",
+      q2: "15",
+      q3: "27",
+      q4: "200",
+      q5: "vierhoek",
+      q6: "grootste",
+      q7: "06:30",
+      q8: "85"
+    };
+
+    function checkAnswers() {
+      let score = 0;
+      const total = Object.keys(correctAnswers).length;
+
+      for (const q in correctAnswers) {
+        const userAnswer =
+          document.getElementById(q).value.trim().toLowerCase();
+        const correct = correctAnswers[q].toLowerCase();
+        const resultDiv = document.getElementById(`${q}-result`);
+
+        if (userAnswer === correct) {
+          resultDiv.textContent = "Korrekt!";
+          resultDiv.style.color = "green";
+          score++;
+        } else {
+          resultDiv.textContent = `Verkeerd. Antwoord: ${correctAnswers[q]}`;
+          resultDiv.style.color = "red";
+        }
+      }
+
+      document.getElementById("score").textContent =
+        `Jou punt: ${score}/${total}`;
+    }
+
+    // -------------------------------
+    // 🔵 Sleep-en-los vir Vraag 9 (getalle orden)
+    // -------------------------------
+    let draggedItem = null;
+
+    function allowDrop(ev) { ev.preventDefault(); }
+    function drag(ev) { draggedItem = ev.target; }
+
+    function drop(ev) {
+      ev.preventDefault();
+      if (ev.target.classList.contains("drag")) {
+        const container = ev.target.parentElement;
+        const items = Array.from(container.children);
+        const draggedIndex = items.indexOf(draggedItem);
+        const targetIndex = items.indexOf(ev.target);
+
+        if (draggedIndex < targetIndex) {
+          container.insertBefore(draggedItem, ev.target.nextSibling);
+        } else {
+          container.insertBefore(draggedItem, ev.target);
+        }
+      }
+    }
+
+    function checkOrder() {
+      const ids = Array.from(
+        document.querySelectorAll("#order-container img")
+      ).map(i => i.id);
+
+      const correct = ["a20", "a35", "a50"];
+      const result = document.getElementById("q9-result");
+
+      if (ids.join(",") === correct.join(",")) {
+        result.textContent = "Korrekte volgorde!";
+        result.style.color = "green";
+      } else {
+        result.textContent = "Verkeerd – probeer weer.";
+        result.style.color = "red";
+      }
+    }
+
+    // 🔵 Maak vraag 9 lukraak georden by laai
+    window.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("order-container");
+      const items = Array.from(container.children);
+      while (items.length) {
+        const rand = Math.floor(Math.random() * items.length);
+        container.appendChild(items.splice(rand,1)[0]);
+      }
+    });
+  </script>
+</head>
+
+<body>
+
+<header>
+  <h1>Graad 2 - Wiskunde Toets</h1>
+</header>
+
+<main>
+  <section>
+    <h2>Oefenvrae</h2>
+
+    <!-- Vraag 1 -->
+    <div class="question">
+      <p>1. 20 + 14 = ?</p>
+      <input type="text" id="q1">
+      <div id="q1-result"></div>
+    </div>
+
+    <!-- Vraag 2 -->
+    <div class="question">
+      <p>2. 25 − 10 = ?</p>
+      <input type="text" id="q2">
+      <div id="q2-result"></div>
+    </div>
+
+    <!-- Vraag 3 -->
+    <div class="question">
+      <p>3. 9 × 3 = ?</p>
+      <input type="text" id="q3">
+      <div id="q3-result"></div>
+    </div>
+
+    <!-- Vraag 4 -->
+    <div class="question">
+      <p>4. Getalwaarde: Wat is die waarde van die "2" in 250?</p>
+      <input type="text" id="q4">
+      <div id="q4-result"></div>
+    </div>
+
+    <!-- Vraag 5 -->
+    <div class="question">
+      <p>5. Watter vorm is dit?</p>
+      <img src="images/rectangle.png" width="80"><br>
+      <input type="text" id="q5">
+      <div id="q5-result"></div>
+    </div>
+
+    <!-- Vraag 6 -->
+    <div class="question">
+      <p>6. Watter woord pas by hierdie prent?</p>
+      <img src="images/biggest.png" width="120"><br>
+      <input type="text" id="q6">
+      <div id="q6-result"></div>
+    </div>
+
+    <!-- Vraag 7 -->
+    <div class="question">
+      <p>7. Watter tyd wys die horlosie?</p>
+      <img src="images/clock630.png" width="120"><br>
+      <input type="text" id="q7">
+      <div id="q7-result"></div>
+    </div>
+
+    <!-- Vraag 8 -->
+    <div class="question">
+      <p>8. Hoeveel geld is hier?</p>
+      <img src="images/money85.png" width="120"><br>
+      <input type="text" id="q8">
+      <div id="q8-result"></div>
+    </div>
+
+    <!-- Vraag 9 -->
+    <div class="question">
+      <p>9. Rangskik die getalle van klein na groot:</p>
+
+      <div id="order-container" class="drag-container">
+        <img id="a50" src="images/50.png" class="drag" draggable="true"
+             ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <img id="a20" src="images/20.png" class="drag" draggable="true"
+             ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+        <img id="a35" src="images/35.png" class="drag" draggable="true"
+             ondragstart="drag(event)" ondragover="allowDrop(event)" ondrop="drop(event)">
+      </div>
+
+      <button onclick="checkOrder()">Kyk Antwoord</button>
+      <div id="q9-result"></div>
+    </div>
+
+    <button onclick="checkAnswers()">Finaliseer Antwoorde</button>
+    <div id="score"></div>
+
+  </section>
+</main>
+
+<footer>
+  <p>&copy; ArrieLesse 2025. Alle regte voorbehou.</p>
+</footer>
+
+</body>
+</html>
